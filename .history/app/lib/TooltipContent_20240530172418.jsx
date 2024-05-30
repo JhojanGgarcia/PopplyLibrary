@@ -2062,7 +2062,7 @@ export const TooltipContent = () => {
   };
 
   return (
-    <div className="h-screen max-h-10 min-h-20  grid place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+    <div className="h-screen max-h-80 min- grid place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
       {tooltipContent.map((tooltip, index) => (
         <div
           key={index}
