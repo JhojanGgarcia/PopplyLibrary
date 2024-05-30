@@ -35,7 +35,7 @@ const socialMedia = [
     nameForTooltipContentGithub: "Github",
   },
   {
-    twitterLink: "https://twitter.com/MrcGgarcia",
+    twitterLink: "https://twitter.com/",
     twitterIcon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
