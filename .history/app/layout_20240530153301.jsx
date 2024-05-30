@@ -8,8 +8,8 @@ const poppinsFont = Poppins({
 
 export const metadata = {
   icons:{
-    icon: "/logo.png",
-  },
+    
+  }
   title: "Popply library",
   description: "Components about animations and Effects for your website.",
 };
