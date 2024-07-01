@@ -115,7 +115,7 @@ export const Header =()=> {
   };
 
   return (
-    <header className="w-screen flex items-center border bg-white    rounded-b-3xl justify-center   max-w-3xl absolute  top-0 h-16 ">
+    <header className="w-screen flex items-center border bg-white  shadow-[0_0px_30px_rgba(133,_127,_250,_0.5)]  rounded-b-3xl justify-center   max-w-3xl absolute  top-0 h-16 ">
       <ul className="flex items-center absolute  bg-white rounded-2xl border p-2  left-0 mx-5  justify-center gap-2">
         {socialMedia.map((icon, index) => (
           <>
@@ -130,7 +130,7 @@ export const Header =()=> {
               {icon.twitterIcon}
               {openIcon === index && (
                 <p
-                  className="  tada absolute top-12 border p-1 rounded-xl"
+                  className="  tada absolute top-14 border p-1 rounded-xl"
                   role="tooltip"
                   aria-label={
                     index === 0

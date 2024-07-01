@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" cz-shortcut-listen="false">
-      <body className={`${poppinsFont.className}flex items-center justify-center overflow-x-hidden`}>{children}</body>
+      <body suppressHydrationWarning={true} className={`${poppinsFont.className}flex items-center justify-center overflow-x-hidden`}>{children}</body>
     </html>
   );
 }

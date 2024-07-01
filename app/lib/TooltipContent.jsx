@@ -2,29 +2,29 @@
 
 import React, { useState } from "react";
 import { iconForTooltips } from "./TooltipIcon";
+import { Toaster, toast } from "sonner";
 import "../styles/animations.css";
 
 let animationCodeCopy = [
-    {
-      animationCopy: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="20"
-          height="20"
-          color="#000000"
-          fill="none"
-        >
-          <path
-            d="M9.38188 5.00507C10.5901 3.66836 11.1943 3 12 3C12.8057 3 13.4099 3.66836 14.6181 5.00507L17.5897 8.29254C19.1966 10.0702 20 10.9591 20 12C20 13.0409 19.1966 13.9298 17.5897 15.7075L14.6181 18.9949C13.4099 20.3316 12.8057 21 12 21C11.1943 21 10.5901 20.3316 9.38188 18.9949L6.41031 15.7075C4.80344 13.9298 4 13.0409 4 12C4 10.9591 4.80344 10.0702 6.41031 8.29254L9.38188 5.00507Z"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
-        </svg>
-      ),
-    },
-  ];
-  
+  {
+    animationCopy: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        color="#000000"
+        fill="none"
+      >
+        <path
+          d="M9.38188 5.00507C10.5901 3.66836 11.1943 3 12 3C12.8057 3 13.4099 3.66836 14.6181 5.00507L17.5897 8.29254C19.1966 10.0702 20 10.9591 20 12C20 13.0409 19.1966 13.9298 17.5897 15.7075L14.6181 18.9949C13.4099 20.3316 12.8057 21 12 21C11.1943 21 10.5901 20.3316 9.38188 18.9949L6.41031 15.7075C4.80344 13.9298 4 13.0409 4 12C4 10.9591 4.80344 10.0702 6.41031 8.29254L9.38188 5.00507Z"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+      </svg>
+    ),
+  },
+];
 
 let copyCopiedTxt = [
   {
@@ -2038,6 +2038,25 @@ export const TooltipContent = () => {
     }));
   };
 
+  const handleCopy = (index) => {
+    navigator.clipboard.writeText(tooltipContent[index].css);
+    if (copy) {
+      toast.success(`${tooltipContent[index].name} copied successfully`);
+    }
+    setCopy((prev) => {
+      const newCopy = [...prev];
+      newCopy[index] = true;
+      return newCopy;
+    });
+    setTimeout(() => {
+      setCopy((prev) => {
+        const newCopy = [...prev];
+        newCopy[index] = false;
+        return newCopy;
+      });
+    }, 2000);
+  };
+
   const handleMouseLeaveForAnimationEvent = (index) => {
     setIsAnimationTooltipOpen((prev) => ({
       ...prev,
@@ -2062,64 +2081,59 @@ export const TooltipContent = () => {
   };
 
   return (
-    <div className="h-screen max-h-10 min-h-20  grid place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-      {tooltipContent.map((tooltip, index) => (
-        <div
-          key={index}
-          className={`h-[200px] w-[200px] relative border overflow-hidden backdrop-blur-2xl  transition mx-5 my-5 rounded-2xl flex items-center justify-center`}
-        >
-          <div className="w-[50px] h-[50px] bg-[#6d60b9] blur-3xl z-0 absolute top-0 left-0"></div>
-          <h1 className="absolute select-none font-medium  top-1">
-            {tooltip.name}
-          </h1>
-          {animationCodeCopy.map((tooltip, tooltipIndex) => (
+    <>
+      <Toaster />
+      <div className="h-screen max-h-10 min-h-20 w-screen  grid place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+        {tooltipContent.map((tooltip, index) => (
+          <div key={index} className="relative">
             <div
-              className="absolute top-2 right-2 border rounded-lg  cursor-pointer"
-              key={tooltipIndex}
+              className={`h-[250px] group father shadow-[0_0px_30px_rgba(133,_127,_250,_0.2)] hover:scale-105 duration-200 w-[250px] relative border overflow-hidden backdrop-blur-2xl  transition mx-5 my-5 rounded-2xl flex items-center justify-center`}
             >
-              <div
-                onMouseEnter={() => handleMouseEnterForAnimationEvent(index)}
-                onMouseLeave={() => handleMouseLeaveForAnimationEvent(index)}
-                onClick={() => {
-                  navigator.clipboard.writeText(tooltipContent[index].css);
-                  setCopy((prev) => {
-                    const newCopy = [...prev];
-                    newCopy[index] = true;
-                    return newCopy;
-                  });
-                  setTimeout(() => {
-                    setCopy((prev) => {
-                      const newCopy = [...prev];
-                      newCopy[index] = false;
-                      return newCopy;
-                    });
-                  }, 2000);
-                }}
-              >
-                {tooltip.animationCopy}
-                {copyCopiedTxt.map((txt, txtIndex) => (
+              <div className="w-[50px] h-[50px]   bg-[#6d60b9] blur-2xl group-hover:-translate-x-48 transition-all duration-300 z-0 absolute top-0 right-0"></div>
+              <div className="w-[50px] h-[50px] bg-[#6d60b9] blur-2xl group-hover:translate-x-48 transition-all duration-300 z-0 absolute bottom-0 left-0"></div>
+              <h1 className="absolute select-none font-medium  top-1">
+                {tooltip.name}
+              </h1>
+              {animationCodeCopy.map((tooltip, tooltipIndex) => (
+                <div
+                  className="absolute top-2 right-2 border rounded-lg  cursor-pointer"
+                  key={tooltipIndex}
+                >
                   <div
-                    onMouseEnter={() => handleMouseEnter(txtIndex)}
-                    onMouseLeave={() => handleMouseLeave(txtIndex)}
-                    key={txtIndex}
-                    className="flex items-center  justify-center"
-                  ></div>
-                ))}
+                    onMouseEnter={() =>
+                      handleMouseEnterForAnimationEvent(index)
+                    }
+                    onMouseLeave={() =>
+                      handleMouseLeaveForAnimationEvent(index)
+                    }
+                    onClick={() => handleCopy(index)}
+                  >
+                    {tooltip.animationCopy}
+                    {copyCopiedTxt.map((txt, txtIndex) => (
+                      <div
+                        onMouseEnter={() => handleMouseEnter(txtIndex)}
+                        onMouseLeave={() => handleMouseLeave(txtIndex)}
+                        key={txtIndex}
+                        className="flex items-center  justify-center"
+                      ></div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <div
+                className="flex relative text-nowrap  items-center justify-center "
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
+              >
+                {tooltip.tooltipContainer && tooltip.tooltipContainer()}
+                {isOpenTooltip[index] && (
+                  <>{tooltip.tooltipSample && tooltip.tooltipSample()}</>
+                )}
               </div>
             </div>
-          ))}
-          <div
-            className="flex relative text-nowrap  items-center justify-center "
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
-          >
-            {tooltip.tooltipContainer && tooltip.tooltipContainer()}
-            {isOpenTooltip[index] && (
-              <>{tooltip.tooltipSample && tooltip.tooltipSample()}</>
-            )}
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };

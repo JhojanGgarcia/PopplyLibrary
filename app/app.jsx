@@ -1,8 +1,8 @@
-'use client'
-import "@/app/styles/animations.css"
+"use client";
+import "@/app/styles/animations.css";
 import { Header } from "./components/Header";
 import { TooltipContent } from "./lib/TooltipContent";
-const title = `Tooltips & Effects`;
+import AnimatedText from "./components/AnimatedText";
 
 export default function App() {
   return (
@@ -10,19 +10,10 @@ export default function App() {
       <Header />
       <div className="w-full flex items-center justify-center">
         <div className="flex flex-col items-center absolute top-44 text-center ">
-          <h1 className="overflow-hidden text-4xl font-semibold  px-2  text-center">
-            {title.match(/./gu).map((char, index) => (
-              <span
-                className="text-reveal inline-block [animation-fill-mode:backwards]"
-                key={`${char}-${index}`}
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
-          </h1>
-          <h2 className="font-semibold max-w-2xl fadein text-center text-xl">
-            Collection of components
+          <AnimatedText message={"Popply library"} fontSize="text-4xl" fontSizeSM="text-4xl" />
+
+          <h2 className="font-semibold p-6 max-w-xs fadein text-center text-xl">
+            Collection of tooltips components
           </h2>
         </div>
         <TooltipContent />

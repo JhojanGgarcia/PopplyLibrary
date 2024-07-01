@@ -180,7 +180,7 @@ export default function TooltipSample()  {
 
   return (
     <main className="w-screen flex mx-auto items-center justify-center h-screen max-w-7xl ">
-      <header className="flex w-screen rounded-b-3xl z-10 items-center border justify-center mx-auto max-w-3xl absolute h-16 top-0 ">
+      <header className="flex shadow-[0_0px_30px_rgba(133,_127,_250,_0.5)] w-screen rounded-b-3xl z-10 items-center border justify-center mx-auto max-w-3xl absolute h-16 top-0 ">
         <p className="text-xl  jiggle top-0 text-nowrap sticky text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
          Look at how to create a tooltip.
         </p>
@@ -196,7 +196,7 @@ export default function TooltipSample()  {
                 {item.iconRoute}
               </Link>
               {openRoute && (
-                <p className="absolute backdrop-blur-sm top-12 border p-1 rounded-xl tada text-nowrap">
+                <p className="absolute backdrop-blur-sm top-14 border p-1 rounded-xl tada text-nowrap">
                   {item.description}
                 </p>
               )}
@@ -206,7 +206,7 @@ export default function TooltipSample()  {
       </header>
       <section className="w-screen h-screen flex items-center justify-center absolute  top-18 max-w-7xl ">
         <div className=" rounded-3xl  w-full relative h-full max-w-3xl flex flex-col items-center justify-center">
-          <article className="max-w-3xl w-full text-ellipsis absolute top-20 p-6 ">
+          <article className="max-w-3xl w-full text-ellipsis absolute top-20 p-8 ">
             <div className="w-full">
               <h1 className="font-semibold">
                 Create a tooltip using React and Tailwind.
@@ -230,7 +230,7 @@ export default function TooltipSample()  {
               <div className="w-full flex  text-left gap-4 flex-col">
                 <br />
                 <p className="font-semibold">Tooltip Sample.</p>
-                <div className="w-full relative border p-20 flex items-center justify-center h-full rounded-xl">
+                <div className="w-full shadow-[0_0px_30px_rgba(133,_127,_250,_0.2)] relative border p-20 flex items-center justify-center h-full rounded-xl">
                   <p className="absolute top-0 text-center p-1">
                     Place your mouse over the UFO.
                   </p>
@@ -252,7 +252,7 @@ export default function TooltipSample()  {
                 </div>
               </div>
               <p className="font-semibold">Code Sample.</p>
-              <div className=" bg-[#fff] border z-10 grid rounded-xl place-content-center">
+              <div className=" bg-[#fff] border z-10 shadow-[0_0px_30px_rgba(133,_127,_250,_0.2)] grid rounded-xl place-content-center">
                 <div className="w-full rounded-xl overflow-hidden">
                   <div className="flex justify-between pb-3 pt-6 px-6">
                     <div className="flex items-center justify-center space-x-2">
