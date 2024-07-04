@@ -42,7 +42,7 @@ export default function AnimatedText({
               stroke="#a3a7fe"
             />
           </motion.svg>
-          <span className="relative  drop-shadow-2xl text-lotus-primary-200 font-alliance">
+          <span className="relative  drop-shadow-2xl  font-alliance">
             {message}
           </span>
         </span>
