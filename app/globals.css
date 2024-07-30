@@ -2,3 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* style the scrollbar with UI dark */
+/* works on webkit browsers like chrome and safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555555;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+.dark::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .dark::-webkit-scrollbar-track {
+    background: #191919;
+  }
+  
+  .dark::-webkit-scrollbar-thumb {
+    background-color: #555555;
+    border-radius: 4px;
+  }
+  
+  .dark::-webkit-scrollbar-thumb:hover {
+    background: #888888;
+  }
+  
