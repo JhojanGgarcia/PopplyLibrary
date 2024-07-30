@@ -32,7 +32,7 @@ export const Header = () => {
               {icon.twitterIcon}
               {openIcon === index && (
                 <p
-                  className=" dark:text-white tada absolute top-14 border p-1 rounded-xl"
+                  className=" dark:text-white dark:border-white/10 tada absolute top-14 border p-1 rounded-xl"
                   role="tooltip"
                   aria-label={
                     index === 0
