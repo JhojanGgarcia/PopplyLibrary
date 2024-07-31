@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function HeroText({ label, description }) {
+export default function HeroText ({ label, description }) {
 
   return (
     <motion.div

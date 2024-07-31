@@ -6,8 +6,7 @@ import { animationCodeCopy } from "../components/content/animationCodeCopy";
 import { copyCopiedTxt } from "../components/content/animationCodeCopy";
 import { tooltipContent } from "../components/content/animationCodeCopy";
 import { motion } from "framer-motion";
-
-
+import "../styles/linearOverlay.css";
 export const TooltipContent = () => {
   const [isOpenTooltip, setIsOpenTooltip] = useState(
     new Array(tooltipContent.length).fill(false)
@@ -17,7 +16,6 @@ export const TooltipContent = () => {
   );
 
   const [isAnimationTooltipOpen, setIsAnimationTooltipOpen] = useState({});
-
 
   const handleMouseEnterForAnimationEvent = (index) => {
     setIsAnimationTooltipOpen((prev) => ({
@@ -71,20 +69,30 @@ export const TooltipContent = () => {
   return (
     <>
       <Toaster />
-      <motion.div
-        className="grid border-t w-screen rounded-3xl  border-black/50 dark:border-white/20 min-h-screen my-28 place-items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 "
-      >
+      <motion.div className="grid border-t w-screen rounded-3xl  dark:border-white/20 min-h-screen mt-28 place-items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
         {tooltipContent.map((tooltip, index) => (
           <div key={index} className="relative">
             <motion.div
-              className={`min-h-[300px] w-[300px]  group dark:border-white/10 shadow-[0_0px_30px_rgba(0,0,0,0.2)]  duration-200 relative border overflow-hidden backdrop-blur-2xl  transition  my-5 rounded-3xl flex items-center justify-center`}
+              initial={{ "--x": "100%", scale: 1 }}
+              animate={{ "--x": "-100%" }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "loop",
+                repeatDelay: 1,
+                type: "spring",
+                stiffness: 20,
+                damping: 15,
+                mass: 2,
+              }}
+              className={`min-h-[300px] w-[300px]  group dark:border-white/10 shadow-[0_0px_30px_rgba(0,0,0,0.2)]  duration-200 relative overflow-hidden backdrop-blur-2xl  transition  my-5 rounded-3xl flex items-center justify-center`}
             >
+              <span className="block  absolute inset-0 rounded-3xl p-[1.5px]  linear-overlay " />
               <div className="w-[50px] h-[50px]   bg-lotus-primary-700 blur-2xl group-hover:-translate-x-48 group-hover:translate-y-48 transition-all duration-700 z-0 absolute top-0 right-0"></div>
               <div className="w-[50px] h-[50px] bg-lotus-primary-900 blur-2xl group-hover:translate-x-48 group-hover:-translate-y-48 transition-all duration-700 z-0 absolute bottom-0 left-0"></div>
               <h1 className="absolute select-none font-medium dark:text-white top-1">
                 {tooltip.name}
               </h1>
-              {animationCodeCopy.map((tooltip, tooltipIndex) => (
+              {animationCodeCopy.map((_, tooltipIndex) => (
                 <div
                   className="absolute top-2  right-2  p-px bg-gradient-to-br from-black/50 to-transparent rounded-xl  cursor-pointer"
                   key={tooltipIndex}
@@ -149,7 +157,7 @@ export const TooltipContent = () => {
                           />
                         </svg>
                       )}
-                      {copyCopiedTxt.map((txt, txtIndex) => (
+                      {copyCopiedTxt.map((_, txtIndex) => (
                         <div
                           onMouseEnter={() => handleMouseEnter(txtIndex)}
                           onMouseLeave={() => handleMouseLeave(txtIndex)}
@@ -169,7 +177,7 @@ export const TooltipContent = () => {
                 {tooltip.tooltipContainer && tooltip.tooltipContainer()}
                 {isOpenTooltip[index] && (
                   <>{tooltip.tooltipSample && tooltip.tooltipSample()}</>
-                )}
+                )}  
               </div>
             </motion.div>
           </div>

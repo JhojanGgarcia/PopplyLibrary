@@ -1,0 +1,26 @@
+.linear-overlay {
+  background-image: linear-gradient(
+    -75deg,
+    rgba(255, 255, 255, 0.1) calc(var(--x) + 20%),
+    rgba(255, 255, 255, 0.5) calc(var(--x) + 25%),
+    rgba(255, 255, 255, 0.1) calc(var(--x) + 100%)
+  );
+  mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
+  -webkit-mask: linear-gradient(black, black) content-box,
+    linear-gradient(black, black);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+.linear-dark-overlay  {
+    background-image: linear-gradient(
+      -75deg,
+      rgba(0, 0, 0, 0.1) calc(var(--x) + 20%),
+      rgba(0, 0, 0, 0.5) calc(var(--x) + 25%),
+      rgba(0, 0, 0, 0.1) calc(var(--x) + 100%)
+    );
+    mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
+  -webkit-mask: linear-gradient(black, black) content-box,
+    linear-gradient(black, black);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}

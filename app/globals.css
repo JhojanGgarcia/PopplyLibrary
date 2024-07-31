@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* style the scrollbar with UI dark */
 /* works on webkit browsers like chrome and safari */
 ::-webkit-scrollbar {
@@ -14,28 +13,34 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #555555;
-  border-radius: 4px;
+  background-color: #5555556b;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fff;
+  background: #00000065;
 }
 .dark::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .dark::-webkit-scrollbar-track {
-    background: #191919;
-  }
-  
-  .dark::-webkit-scrollbar-thumb {
-    background-color: #555555;
-    border-radius: 4px;
-  }
-  
-  .dark::-webkit-scrollbar-thumb:hover {
-    background: #888888;
-  }
+  width: 8px;
+}
 
-  
+.dark::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background-color: #ffffff70;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
