@@ -6,7 +6,7 @@ import { animationCodeCopy } from "../components/content/animationCodeCopy";
 import { copyCopiedTxt } from "../components/content/animationCodeCopy";
 import { tooltipContent } from "../components/content/animationCodeCopy";
 import { motion } from "framer-motion";
-import "../styles/animations.css";
+
 
 export const TooltipContent = () => {
   const [isOpenTooltip, setIsOpenTooltip] = useState(
@@ -17,6 +17,7 @@ export const TooltipContent = () => {
   );
 
   const [isAnimationTooltipOpen, setIsAnimationTooltipOpen] = useState({});
+
 
   const handleMouseEnterForAnimationEvent = (index) => {
     setIsAnimationTooltipOpen((prev) => ({
@@ -70,15 +71,13 @@ export const TooltipContent = () => {
   return (
     <>
       <Toaster />
-      <div className="min-h-screen grid place-items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+      <motion.div
+        className="grid border-t w-screen rounded-3xl  border-black/50 dark:border-white/20 min-h-screen my-28 place-items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 "
+      >
         {tooltipContent.map((tooltip, index) => (
           <div key={index} className="relative">
             <motion.div
-            initial={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeInOut", damping: 10 }}
-            animate={{ opacity: 1, y: [0,100] }}
-
-              className={`min-h-[300px] w-[300px] p-6 group dark:border-white/10 shadow-[0_0px_30px_rgba(0,0,0,0.2)]  duration-200 relative border overflow-hidden backdrop-blur-2xl  transition mx-5 my-5 rounded-2xl flex items-center justify-center`}
+              className={`min-h-[300px] w-[300px]  group dark:border-white/10 shadow-[0_0px_30px_rgba(0,0,0,0.2)]  duration-200 relative border overflow-hidden backdrop-blur-2xl  transition  my-5 rounded-3xl flex items-center justify-center`}
             >
               <div className="w-[50px] h-[50px]   bg-lotus-primary-700 blur-2xl group-hover:-translate-x-48 group-hover:translate-y-48 transition-all duration-700 z-0 absolute top-0 right-0"></div>
               <div className="w-[50px] h-[50px] bg-lotus-primary-900 blur-2xl group-hover:translate-x-48 group-hover:-translate-y-48 transition-all duration-700 z-0 absolute bottom-0 left-0"></div>
@@ -118,7 +117,6 @@ export const TooltipContent = () => {
                           />
                           <motion.path
                             animate={{ rotate: [0, 360] }}
-
                             d="M16.9999 9C16.9975 6.04291 16.9528 4.51121 16.092 3.46243C15.9258 3.25989 15.7401 3.07418 15.5376 2.90796C14.4312 2 12.7875 2 9.5 2C6.21252 2 4.56878 2 3.46243 2.90796C3.25989 3.07417 3.07418 3.25989 2.90796 3.46243C2 4.56878 2 6.21252 2 9.5C2 12.7875 2 14.4312 2.90796 15.5376C3.07417 15.7401 3.25989 15.9258 3.46243 16.092C4.51121 16.9528 6.04291 16.9975 9 16.9999"
                             stroke="#888888"
                             stroke-width="1.5"
@@ -128,7 +126,7 @@ export const TooltipContent = () => {
                         </motion.svg>
                       ) : (
                         <svg
-                           className=" dark:text-white"
+                          className=" dark:text-white"
                           viewBox="0 0 24 24"
                           width="24"
                           height="24"
@@ -176,7 +174,7 @@ export const TooltipContent = () => {
             </motion.div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

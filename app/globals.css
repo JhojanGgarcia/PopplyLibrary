@@ -19,7 +19,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #888888;
+  background: #fff;
 }
 .dark::-webkit-scrollbar {
     width: 8px;
@@ -37,4 +37,5 @@
   .dark::-webkit-scrollbar-thumb:hover {
     background: #888888;
   }
+
   
