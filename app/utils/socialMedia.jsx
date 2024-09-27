@@ -21,7 +21,7 @@ export const socialMedia = [
     nameForTooltipContentGithub: "Github",
   },
   {
-    twitterLink: "https://twitter.com/MrcGgarcia",
+    twitterLink: "https://x.com/RousDev",
     twitterIcon: (
       <svg
         className="dark:text-white"
