@@ -2,7 +2,7 @@
 
 
 
-![Popply Library](/public/shotDark.png)
+![Popply Library](/public/shot.png)
 
 Welcome and thank you for using my **tooltips library**! I've created this library to help you add more interactivity to your web pages. I've included a collection of animations and effects for your tooltips components.
 
