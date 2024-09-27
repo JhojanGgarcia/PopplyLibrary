@@ -18,7 +18,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
+<<<<<<< HEAD
   background-color: #36363670;
+=======
+  background-color: #5555556b;
+>>>>>>> dbb9ef3c212c3a43e112e185836ed42ed757d44d
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -27,5 +31,30 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
+<<<<<<< HEAD
   background: #5c5c5c;
 }
+=======
+  background: #00000065;
+}
+.dark::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background-color: #ffffff70;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+>>>>>>> dbb9ef3c212c3a43e112e185836ed42ed757d44d
