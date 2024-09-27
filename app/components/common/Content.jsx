@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Toaster, toast } from "sonner";
 import { animationCodeCopy } from "../../utils/animationCodeCopy";
 import { tooltipContent } from "../../utils/animationCodeCopy";
 import { motion } from "framer-motion";
