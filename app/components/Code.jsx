@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { codeToHtml, createHighlighter } from 'shiki/index.mjs';
+import { codeToHtml, createHighlighter } from 'shiki';
 
 export default function ShikiCode({ code, lang, className, ...props }) {
   const [html, setHtml] = useState('');
