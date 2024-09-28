@@ -1,23 +1,25 @@
 "use client";
 
 import React, { useState } from "react";
-import { socialMedia } from "../../utils/socialMedia";
+import { Input } from "../search/Input";
 import "../../styles/animations.css";
-import Link from "next/link";
 import Image from "next/image";
 
-export const Header = () => {
+export const Header = ({ onSearch }) => {
   let [openIcon, setOpenIcon] = useState(false);
-
+  let [value, setValue] = useState("");
   let mouseEnter = (index) => {
     setOpenIcon(index);
   };
   let mouseLeave = () => {
     setOpenIcon(false);
   };
-
+  const handleInputChange = (e) => {
+    setValue(e.target.value);
+    onSearch(e.target.value);
+  };
   return (
-    <header className="max-w-4xl w-full mx-auto flex items-center backdrop-blur-xl justify-between  rounded-2xl z-10 bg-white dark:bg-transparent dark:shadow-[0_0px_30px_rgba(255,255,255,0.1)] dark:border-white/10 shadow-[0_0px_30px_rgba(0,0,0,0.5)] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.1)_0%,transparent_60%)] border border-white/20 top-2 overflow-hidden  absolute py-1 px-2 ">
+    <header className="max-w-4xl w-full mx-auto flex items-center backdrop-blur-xl justify-between  rounded-2xl z-10 bg-white dark:bg-transparent dark:shadow-[0_0px_30px_rgba(255,255,255,0.1)] dark:border-white/10 shadow-[0_0px_30px_rgba(0,0,0,0.5)] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.1)_0%,transparent_60%)] border border-white/20 top-2 overflow-hidden  fixed py-1 px-2 ">
       <li className="flex items-center text-white gap-2 p-1">
         <Image src="/logo.png" alt="logo" width={30} height={30}></Image>
         <span className="relative text-nowrap flex items-center gap-1 p-1  px-[0.1875rem] font-medium text-[0.9rem]/[0.875rem] text-white dark:bg-[rgba(100,100,100,0.1)]">
@@ -70,35 +72,13 @@ export const Header = () => {
       </li>
 
       <ul className="flex items-center  justify-center gap-2">
-        {socialMedia.map((icon, index) => (
-          <Link
-            href={index === 0 ? icon.githubLink : icon.twitterLink}
-            onMouseEnter={() => mouseEnter(index)}
-            onMouseLeave={mouseLeave}
-            key={index}
-            className="cursor-pointer   flex opacity-50 items-center justify-center"
-          >
-            {icon.githubIcon}
-            {icon.twitterIcon}
-            {openIcon === index && (
-              <p
-                className=" dark:text-white dark:border-white/10 tada absolute top-14 border p-1 rounded-xl"
-                role="tooltip"
-                aria-label={
-                  index === 0
-                    ? icon.nameForTooltipContentGithub
-                    : icon.nameForTooltipContentTwitter
-                }
-              >
-                {index === 0
-                  ? icon.nameForTooltipContentGithub
-                  : icon.nameForTooltipContentTwitter}
-              </p>
-            )}
-          </Link>
-        ))}
+        <Input
+          onChange={handleInputChange}
+          placeholder="Search..."
+          type="text"
+          value={value}
+        />
       </ul>
-      
     </header>
   );
 };
