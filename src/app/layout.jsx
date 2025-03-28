@@ -1,4 +1,5 @@
 import { Bricolage_Grotesque } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 const bricolageFont = Bricolage_Grotesque({
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
         className={`${bricolageFont.className} overflow-x-hidden scroll-smooth bg-[#0f0f0f] transition-colors duration-500 dark:bg-white`}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
