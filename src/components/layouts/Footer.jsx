@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="w-full">
       <div className="items-center justify-between px-4 sm:flex">
-        <svg className="absolute z-0 opacity-30 blur-3xl" viewBox="0 0 100 100">
+        <svg className="absolute  opacity-30 blur-3xl" viewBox="0 0 100 100">
           <defs>
             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
               <stop id="stop1" stopColor="#554970" offset="0%"></stop>
@@ -28,7 +28,7 @@ export default function Footer() {
           </span>
           . All rights reserved.
         </p>
-        <div className="mt-6 flex items-center gap-x-6 text-gray-400">
+        <div className="mt-6 z-50 flex items-center gap-x-6 text-gray-400">
           <Link
             className="flex items-center gap-1 rounded-lg border border-white/10 p-1 text-xs text-white shadow-[0_4px_10px_rgba(0,0,0,0.1)] dark:border-black/20 dark:text-black/70"
             href="https://github.com/JhojanGgarcia/PopplyLibrary"
