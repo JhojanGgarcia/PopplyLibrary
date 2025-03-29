@@ -1,4 +1,4 @@
-<img src="./public/assets/banner.png" />
+
 
 Welcome to **Popply**, a refined animation library for tooltips—those subtle yet powerful UI elements that enhance user guidance and interaction.
 
